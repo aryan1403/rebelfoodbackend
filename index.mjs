@@ -16,10 +16,11 @@ app.use(function(req, res, next) {
 app.post('/register', async (req, res) => {
     const body = JSON.parse(JSON.stringify(req.body));
     res.header("Access-Control-Allow-Origin", "*");
-    await sendM(body.email, 12345).then((data) => {
-        console.log(data);
-        res.end(JSON.stringify(data));
-    });
+    await sendM(body.email, 12345);
+    res.end(JSON.stringify({
+        status: 200,
+        msg: 'Mail Sent Successfully'
+    }));
 });
 
 app.post('/login', async (req, res) => {

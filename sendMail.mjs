@@ -16,7 +16,7 @@ export default async function sendM(toEmail, otp) {
         }
     });
 
-    await transporter.sendMail({
+    transporter.sendMail({
         from: "aaryan14032006@gmail.com",
         to: toEmail,
         subject: "Authentication Required!",
