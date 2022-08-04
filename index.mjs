@@ -3,14 +3,14 @@ import express from "express";
 import {SaveUserCreds, isLogin} from "./db.mjs";
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.post('/register', async (req, res) => {
     const body = req.body;
     
-    await sendM(body.email, 12345).then((data) => {
+    await sendM('aryankumar14032006@gmail.com', 12345).then((data) => {
         console.log(data);
         res.end(JSON.stringify(data));
     });
