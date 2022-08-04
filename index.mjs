@@ -3,7 +3,7 @@ import express from "express";
 import {SaveUserCreds, isLogin} from "./db.mjs";
 
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
@@ -36,4 +36,4 @@ app.post('/saveCreds', async (req, res) => {
     });
 });
 
-app.listen(PORT, () => console.log('Server Started'));
+app.listen(PORT, () => console.log(`Server Started on PORT:${PORT}`));
