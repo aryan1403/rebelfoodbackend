@@ -8,9 +8,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.post('/register', async (req, res) => {
-    const body = req.body;
+    const body = JSON.parse(String(req.body));
     
-    await sendM('aryankumar14032006@gmail.com', 12345).then((data) => {
+    await sendM(body.email, 12345).then((data) => {
         console.log(data);
         res.end(JSON.stringify(data));
     });
